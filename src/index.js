@@ -9,4 +9,4 @@ class App extends React.Component {
   }
 }
 
-ReactDom.render(App, document.getElementById('aboutus'))
+ReactDom.render(<App />, document.getElementById('aboutus'))
