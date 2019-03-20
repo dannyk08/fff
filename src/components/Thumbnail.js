@@ -4,10 +4,11 @@ import style from './Thumbnail.scss'
 
 const Thumbnail = ({
   imgUrl = '',
-  name = ''
+  name = '',
+  handleClick = null
 }) => {
   if (!imgUrl.length) return null
-  return <div className={style.Thumbnail}>
+  return <div className={style.Thumbnail} onClick={handleClick}>
     <img src={imgUrl} alt={`${name} thumbnail picture`.trim()} />
   </div>
 }

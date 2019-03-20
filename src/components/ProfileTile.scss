@@ -3,7 +3,8 @@
   box-shadow: 0 0 1rem 1rem whitesmoke;
   padding: 1rem;
   display: flex;
-  max-width: 25rem;
+  min-width: calc(100%/3);
+  max-width: calc(100%/3);
   justify-content: space-around;
   min-height: 15rem;
   align-items: center;

@@ -8,23 +8,38 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      profiles: []
+      profiles: [],
+      carouselProfiles: [],
     }
+
+    this.handleCarouselPush = (profile) => this._handleCarouselPush.bind(this, profile)
   }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/?results=50', { method: 'GET' })
-      .then((data) => data.json())
-      .then((data) => {
-        this.setState({ profiles: data.results })
-      }).catch((err) => console.error(err))
+    this.fetchProfiles()
   }
 
   render() {
     return (<div className="App">
-      <ProfileCarousel profiles={this.state.profiles.slice(3, 6)} />
-
-      <ProfileList profiles={this.state.profiles} />
+      <ProfileCarousel profiles={this.state.carouselProfiles} />
+      <ProfileList profiles={this.state.profiles} handleClick={this.handleCarouselPush} />
     </div>)
   }
+
+  fetchProfiles() {
+    fetch('https://randomuser.me/api/?results=50', { method: 'GET' })
+      .then((data) => data.json())
+      .then((data) => {
+        this.setState({
+          profiles: data.results,
+          carouselProfiles: data.results.slice(3, 6),
+        })
+      }).catch(console.error)
+  }
+
+  _handleCarouselPush(profile) {
+    const carouselProfiles = [profile, ...this.state.carouselProfiles]
+    this.setState({ carouselProfiles })
+  }
+
 }
