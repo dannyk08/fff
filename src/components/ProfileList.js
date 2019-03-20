@@ -1,12 +1,12 @@
 import React from 'react';
+
+import style from './ProfileList.scss';
 import Thumbnail from './Thumbnail';
 
 const ProfileList = ({
   profiles = null
 }) => {
-  return <div className="ProfileList">
-    le ProfileList
-
+  return <div className={style.ProfileList}>
     {
       profiles && profiles.length &&
       profiles.map((p, i) => (<Thumbnail

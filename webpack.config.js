@@ -41,10 +41,60 @@ if (development) {
     port: 3000
   }
   webpackConfig.devtool = 'inline-source-map'
+  webpackConfig.module.rules = [
+    ...webpackConfig.module.rules,
+    ...[
+      {
+        test: /\.(css|scss)/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  ]
 }
 
 if (production) {
   webpackConfig.devtool = 'source-map'
+  webpackConfig.module.rules = [
+    ...webpackConfig.module.rules,
+    ...[
+      {
+        test: /\.(css|scss)/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]__[hash:base64:10]'
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  ]
 }
 
 
