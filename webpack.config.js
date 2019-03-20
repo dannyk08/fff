@@ -40,7 +40,13 @@ if (development) {
     compress: true,
     port: 3000
   }
+  webpackConfig.devtool = 'inline-source-map'
 }
+
+if (production) {
+  webpackConfig.devtool = 'source-map'
+}
+
 
 module.exports = {
   ...webpackConfig

@@ -1,4 +1,7 @@
 .dev
+.dist
 .DS_Store
 
 node_modules
+
+mock_data.json

@@ -1,11 +1,21 @@
 import React from 'react';
 import Thumbnail from './Thumbnail';
 
-const ProfileList = (props) => {
-  return <div>
+const ProfileList = ({
+  profiles = null
+}) => {
+  return <div className="ProfileList">
     le ProfileList
 
-      <Thumbnail />
+    {
+      profiles && profiles.length &&
+      profiles.map((p, i) => (<Thumbnail
+        imgUrl={p.picture.large}
+        name={p.id.name}
+        key={i * Date.now()}
+      />))
+    }
+
   </div>
 }
 
