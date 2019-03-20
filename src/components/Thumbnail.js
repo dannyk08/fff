@@ -8,7 +8,10 @@ const Thumbnail = ({
   handleClick = null
 }) => {
   if (!imgUrl.length) return null
-  return <div className={style.Thumbnail} onClick={handleClick}>
+
+  const thumbnailClasses = `${style.Thumbnail} ${handleClick !== null && style['Thumbnail-clickable'] || ''} `.trim()
+
+  return <div className={thumbnailClasses} onClick={handleClick}>
     <img src={imgUrl} alt={`${name} thumbnail picture`.trim()} />
   </div>
 }

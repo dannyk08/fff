@@ -1,5 +1,6 @@
 import React from 'react';
 
+import style from './App.scss';
 import ProfileList from './components/ProfileList';
 import ProfileCarousel from './components/ProfileCarousel';
 
@@ -10,6 +11,7 @@ export default class App extends React.Component {
     this.state = {
       profiles: [],
       carouselProfiles: [],
+      carouselRotating: false,
     }
 
     this.handleCarouselPush = (profile) => this._handleCarouselPush.bind(this, profile)
@@ -20,7 +22,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (<div className="App">
+    return (<div className={style.App}>
       <ProfileCarousel profiles={this.state.carouselProfiles} />
       <ProfileList profiles={this.state.profiles} handleClick={this.handleCarouselPush} />
     </div>)
@@ -38,8 +40,21 @@ export default class App extends React.Component {
   }
 
   _handleCarouselPush(profile) {
-    const carouselProfiles = [profile, ...this.state.carouselProfiles]
-    this.setState({ carouselProfiles })
+    if (!this.state.carouselRotating) {
+      const carouselProfiles = [profile, ...this.state.carouselProfiles]
+      this.setState({
+        carouselProfiles,
+        carouselRotating: true
+      }, () => {
+        setTimeout(() => {
+          const triplet = this.state.carouselProfiles.slice(0, 3)
+          this.setState({
+            carouselProfiles: [...triplet],
+            carouselRotating: false
+          })
+        }, 2125);
+      })
+    }
   }
 
 }

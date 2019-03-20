@@ -11,9 +11,9 @@
 .ProfileCarousel {
   display: flex;
   justify-content: flex-end;
-  transition: 1s ease-out;
+  transition: 1.125s ease-out;
 
   &-slide {
-    animation: CAROUSEL-SLIDE 2.5s ease-out forwards;
+    animation: CAROUSEL-SLIDE 2.125s ease-out forwards;
   }
 }
