@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import ProfileList from './components/ProfileList';
 
 class App extends React.Component {
   render() {
     return (<div>
-      <h1>app</h1>
+      <ProfileList />
     </div>)
   }
 }
 
-ReactDom.render(<App />, document.getElementById('aboutus'))
+ReactDom.render(<App />, document.getElementById('aboutUs'))
