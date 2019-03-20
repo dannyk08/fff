@@ -1,3 +1,19 @@
+@-webkit-keyframes CAROUSEL-SLIDE {
+  0% {
+    transform: translateX(calc(100% / 18))
+  }
+  100% {
+    transform: translateX(calc(100% / 3))
+  }
+}
+
+
 .ProfileCarousel {
   display: flex;
+  justify-content: flex-end;
+  transition: 1s ease-out;
+
+  &-slide {
+    animation: CAROUSEL-SLIDE 2.5s ease-out forwards;
+  }
 }
