@@ -17,15 +17,31 @@
   &-clickable {
     cursor: pointer;
     transition: all .25s ease-out;
+    position: relative;
     
     &:hover {
       box-shadow: 0 3px 2rem .5rem whitesmoke;
       
       .Thumbnail-image {
+        opacity: 0.2;
         min-height: 125%;
         min-width: 125%;
         max-width: 125%;
       }
+
+      .Thumbnail-name {
+        opacity: 1;
+      }
+    }
+
+    .Thumbnail-name {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
     }
   }
 

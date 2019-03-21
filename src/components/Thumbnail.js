@@ -1,6 +1,7 @@
 import React from 'react';
 
 import style from './Thumbnail.scss'
+import { capitalize } from '../utils/helpers';
 
 const Thumbnail = ({
   imgUrl = '',
@@ -17,6 +18,7 @@ const Thumbnail = ({
       src={imgUrl}
       alt={`${name} thumbnail picture`.trim()}
     />
+    {handleClick !== null && <h3 className={style['Thumbnail-name']}>{capitalize(name)}</h3>}
   </div>
 }
 

@@ -13,7 +13,7 @@ const ProfileList = ({
       profiles && !!profiles.length &&
       profiles.map((p) => (<Thumbnail
         imgUrl={p.picture.large}
-        name={p.id.name}
+        name={p.name.first}
         handleClick={handleClick(p)}
         key={v4()}
       />))
