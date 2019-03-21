@@ -60,7 +60,7 @@ export default class ProfileCarousel extends React.Component {
       if (maxCarouselTiles !== 1) {
         this.setState({ maxCarouselTiles: 1 })
       }
-    } else if (innerWidth > 37 * 14 && innerWidth < 752) {
+    } else if (innerWidth > 37 * 14 && innerWidth < 47 * 16) {
       if (maxCarouselTiles !== 2) {
         this.setState({ maxCarouselTiles: 2 })
       }
