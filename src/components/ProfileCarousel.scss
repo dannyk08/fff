@@ -1,23 +1,13 @@
-@-webkit-keyframes CAROUSEL-SLIDE {
-  0% {
-    transform: translateX(calc(100% / 18))
-  }
-  100% {
-    transform: translateX(calc(100% / 3))
-  }
-}
-
-
 .ProfileCarousel {
+  overflow: hidden;
+  
   &-container {
     display: flex;
-    transition: 1.125s ease-out;
+    transition: 1.5s ease-out;
     height: 20rem;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    position: relative;
   }
-  
-  &-slide {
-    animation: CAROUSEL-SLIDE 2.125s ease-out forwards;
-  }
+
 }
