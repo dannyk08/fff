@@ -11,7 +11,7 @@ const ProfileList = ({
   return <section className={style.ProfileList}>
     {
       profiles && !!profiles.length &&
-      profiles.map((p, i) => (<Thumbnail
+      profiles.map((p) => (<Thumbnail
         imgUrl={p.picture.large}
         name={p.id.name}
         handleClick={handleClick(p)}

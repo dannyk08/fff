@@ -3,6 +3,7 @@ import React from 'react';
 import style from './App.scss';
 import ProfileList from './components/ProfileList';
 import ProfileCarousel from './components/ProfileCarousel';
+import Loading from './components/Loading';
 
 export default class App extends React.Component {
 
@@ -21,10 +22,22 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (<div className={style.App}>
-      <ProfileCarousel profiles={this.state.carouselProfiles} />
-      <ProfileList profiles={this.state.profiles} handleClick={this.handleCarouselPush} />
-    </div>)
+
+    const {
+      carouselProfiles,
+      profiles,
+    } = this.state
+
+    return (
+      <main className={style.App}>
+        {!!carouselProfiles.length && <ProfileCarousel profiles={carouselProfiles} />}
+        <h1 className={style['App-page-title']}>About Us</h1>
+        {
+          !!profiles.length &&
+          <ProfileList profiles={profiles} handleClick={this.handleCarouselPush} /> || <Loading />
+        }
+      </main>
+    )
   }
 
   fetchProfiles() {

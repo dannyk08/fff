@@ -8,16 +8,28 @@ export default class ProfileCarousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      carouselShift: '0'
+      carouselShift: '0',
+      maxCarouselTiles: 3,
     }
+    this.handleComponentResize = this.handleComponentResize.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleComponentResize, { capture: true })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleComponentResize, { capture: true })
   }
 
   componentDidUpdate(props) {
+    const { maxCarouselTiles } = this.state
+
     if (
-      props.profiles.length >= 3 &&
+      props.profiles.length >= maxCarouselTiles &&
       props.profiles.length !== this.props.profiles.length
     ) {
-      const totalNewTitles = Math.floor((this.props.profiles.length - 3) * (window.innerWidth / 3))
+      const totalNewTitles = Math.floor((this.props.profiles.length - maxCarouselTiles) * (window.innerWidth / maxCarouselTiles))
       const carouselShift = `${totalNewTitles}px`
 
       if (totalNewTitles > 0) {
@@ -34,11 +46,28 @@ export default class ProfileCarousel extends React.Component {
     return <section className={style.ProfileCarousel}>
       <div className={style['ProfileCarousel-container']} style={{ left: carouselShift }}>
         {
-          profiles && !!profiles.length && profiles.map((p, i) => {
-            return <ProfileTile profile={p} key={v4()} />
-          })
+          profiles && !!profiles.length &&
+          profiles.map((p) => <ProfileTile profile={p} key={v4()} />)
         }
       </div>
     </section>
+  }
+
+  handleComponentResize(e) {
+    const { maxCarouselTiles } = this.state
+    const { innerWidth } = window
+    if (innerWidth < 37 * 14) {
+      if (maxCarouselTiles !== 1) {
+        this.setState({ maxCarouselTiles: 1 })
+      }
+    } else if (innerWidth > 37 * 14 && innerWidth < 752) {
+      if (maxCarouselTiles !== 2) {
+        this.setState({ maxCarouselTiles: 2 })
+      }
+    } else {
+      if (maxCarouselTiles !== 3) {
+        this.setState({ maxCarouselTiles: 3 })
+      }
+    }
   }
 }

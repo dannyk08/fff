@@ -19,16 +19,25 @@ const ProfileTile = ({
       name={profile.id.name}
     />
     <div className={style['ProfileTile-details']}>
-      <h2>{`${capitalize(profile.name.title)} ${capitalize(profile.name.first)} ${capitalize(profile.name.last)}`.trim()}</h2>
+      <h2>{formatName(profile.name)}</h2>
       {
         birthday && birthday.length &&
         <p className={style['ProfileTile-birthday']}>
           <FontAwesomeIcon icon={faBirthdayCake} /> {birthday}
         </p>
       }
-      <p>{`${capitalize(profile.location.city)}, ${capitalize(profile.location.state)}`}</p>
+      <p>{formatLocation(profile.location)}</p>
     </div>
   </div>
+
+
+  function formatName(name) {
+    return `${capitalize(name.title)} ${capitalize(name.first)} ${capitalize(name.last)}`.trim()
+  }
+
+  function formatLocation(location) {
+    return `${capitalize(location.city)}, ${capitalize(location.state)}`
+  }
 }
 
 export default ProfileTile

@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-const BIRTHDATE_FORMAT = 'MM/DD/YY'
+const BIRTH_DATE_FORMAT = 'MM/DD/YY'
 
 export function capitalize(string = '') {
   if (typeof string !== 'string') return ''
@@ -9,5 +9,5 @@ export function capitalize(string = '') {
 
 export function formatDate(string = '') {
   if (typeof string !== 'string') return ''
-  return format(string, BIRTHDATE_FORMAT)
+  return format(string, BIRTH_DATE_FORMAT)
 }
