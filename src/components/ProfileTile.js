@@ -15,7 +15,7 @@ const ProfileTile = ({
       name={profile.id.name}
     />
     <div className={style['ProfileTile-details']}>
-      <h3>{`${capitalize(profile.name.title)} ${capitalize(profile.name.first)} ${capitalize(profile.name.last)}`.trim()}</h3>
+      <h2>{`${capitalize(profile.name.title)} ${capitalize(profile.name.first)} ${capitalize(profile.name.last)}`.trim()}</h2>
       <p>{`${capitalize(profile.location.city)}, ${capitalize(profile.location.state)}`}</p>
     </div>
   </div>

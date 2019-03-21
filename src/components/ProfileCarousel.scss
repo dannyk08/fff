@@ -9,10 +9,14 @@
 
 
 .ProfileCarousel {
-  display: flex;
-  justify-content: flex-end;
-  transition: 1.125s ease-out;
-
+  &-container {
+    display: flex;
+    transition: 1.125s ease-out;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
   &-slide {
     animation: CAROUSEL-SLIDE 2.125s ease-out forwards;
   }

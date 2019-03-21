@@ -2,12 +2,37 @@
   flex: 1;
   border-radius: 50%;
   overflow: hidden;
-  min-width: 128px;
-  min-height: 128px;
-  max-width: 128px;
-  max-height: 128px;
-
+  min-width: 8rem;
+  min-height: 8rem;
+  max-width: 8rem;
+  max-height: 8rem;
+  margin: .75rem;
+  border: 1px solid rgba(51, 51, 51, .5);
+  box-shadow: 0 3px 1rem .25rem whitesmoke;
+  transition: 1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   &-clickable {
     cursor: pointer;
+    transition: all .25s ease-out;
+    
+    &:hover {
+      box-shadow: 0 3px 2rem .5rem whitesmoke;
+      
+      .Thumbnail-image {
+        min-height: 125%;
+        min-width: 125%;
+        max-width: 125%;
+      }
+    }
+  }
+
+  &-image {
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    transition: all .25s ease-out;
   }
 }

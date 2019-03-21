@@ -1,13 +1,13 @@
 .ProfileTile {
-  border: 1px solid whitesmoke;
-  box-shadow: 0 0 1rem 1rem whitesmoke;
   padding: 1rem;
   display: flex;
-  min-width: calc(100%/3);
-  max-width: calc(100%/3);
+  min-width: calc(100% / 3 - 3rem);
+  max-width: calc(100% / 3 - 3rem);
   justify-content: space-around;
-  min-height: 15rem;
+  height: 14rem;
   align-items: center;
+  border-bottom: 1px solid;
+  margin: 1.5rem;
   
   &-details {
     flex: 1;

@@ -12,7 +12,11 @@ const Thumbnail = ({
   const thumbnailClasses = `${style.Thumbnail} ${handleClick !== null && style['Thumbnail-clickable'] || ''} `.trim()
 
   return <div className={thumbnailClasses} onClick={handleClick}>
-    <img src={imgUrl} alt={`${name} thumbnail picture`.trim()} />
+    <img
+      className={style['Thumbnail-image']}
+      src={imgUrl}
+      alt={`${name} thumbnail picture`.trim()}
+    />
   </div>
 }
 
